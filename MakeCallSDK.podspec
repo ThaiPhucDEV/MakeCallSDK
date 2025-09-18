@@ -16,5 +16,5 @@ Pod::Spec.new do |spec|
 
   # Dependencies
   spec.dependency 'GoogleWebRTC'
-  spec.dependency 'linphone-sdk-swift-ios'
+  
 end
