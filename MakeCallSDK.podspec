@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "MakeCall-SDK-IOS"
-  spec.version      = "0.0.3"
+  spec.version      = "0.0.4"
   spec.summary      = "A simple SDK to make calls"
   spec.description  = "MakeCallSDK is a demo SDK to make call functionalities for iOS developers."
 
