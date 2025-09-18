@@ -1,0 +1,24 @@
+{
+  "originHash" : "b7b5b82c166d7a287a8bdb8fe59d6c0ef102264c7a0cac7f69e3969dd2d91daa",
+  "pins" : [
+    {
+      "identity" : "linphone-sdk-swift-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://gitlab.linphone.org/BC/public/linphone-sdk-swift-ios.git",
+      "state" : {
+        "revision" : "a9ea9d6e8da2a319891cb2821362744f2d17dd9f",
+        "version" : "5.4.44"
+      }
+    },
+    {
+      "identity" : "webrtc",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alexpiezo/WebRTC.git",
+      "state" : {
+        "revision" : "88f547d3d9f58369221c6d8fedce6bfdcd3531bb",
+        "version" : "86.4240.0"
+      }
+    }
+  ],
+  "version" : 3
+}

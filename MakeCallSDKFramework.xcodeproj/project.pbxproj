@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BE04EAE42E7BCA9F00EA6484 /* MakeCallSDKFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE04EAD82E7BCA9F00EA6484 /* MakeCallSDKFramework.framework */; };
+		BE04EAF72E7C198900EA6484 /* MakeCallSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = BE04EAF62E7C198900EA6484 /* MakeCallSDK.podspec */; };
+		BE04EB012E7C1E5100EA6484 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BE04EB002E7C1E5100EA6484 /* Podfile */; };
+		BE27EA502E7C5C25009F1840 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = BE27EA4F2E7C5C25009F1840 /* WebRTC */; };
+		BE27EA522E7C5C25009F1840 /* linphonesw in Frameworks */ = {isa = PBXBuildFile; productRef = BE27EA512E7C5C25009F1840 /* linphonesw */; };
+		BE27EA542E7C5ED5009F1840 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BE27EA532E7C5ED5009F1840 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,17 +28,15 @@
 /* Begin PBXFileReference section */
 		BE04EAD82E7BCA9F00EA6484 /* MakeCallSDKFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MakeCallSDKFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE04EAE32E7BCA9F00EA6484 /* MakeCallSDKFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakeCallSDKFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE04EAF62E7C198900EA6484 /* MakeCallSDK.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MakeCallSDK.podspec; sourceTree = "<group>"; };
+		BE04EB002E7C1E5100EA6484 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		BE27EA532E7C5ED5009F1840 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BE04EADA2E7BCA9F00EA6484 /* MakeCallSDKFramework */ = {
+		BE04EADA2E7BCA9F00EA6484 /* MakeCallSDK */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MakeCallSDKFramework;
-			sourceTree = "<group>";
-		};
-		BE04EAE72E7BCA9F00EA6484 /* MakeCallSDKFrameworkTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MakeCallSDKFrameworkTests;
+			path = MakeCallSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -43,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE27EA502E7C5C25009F1840 /* WebRTC in Frameworks */,
+				BE27EA522E7C5C25009F1840 /* linphonesw in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,8 +65,11 @@
 		BE04EACE2E7BCA9F00EA6484 = {
 			isa = PBXGroup;
 			children = (
-				BE04EADA2E7BCA9F00EA6484 /* MakeCallSDKFramework */,
-				BE04EAE72E7BCA9F00EA6484 /* MakeCallSDKFrameworkTests */,
+				BE27EA532E7C5ED5009F1840 /* LICENSE */,
+				BE04EB002E7C1E5100EA6484 /* Podfile */,
+				BE04EAF62E7C198900EA6484 /* MakeCallSDK.podspec */,
+				BE04EADA2E7BCA9F00EA6484 /* MakeCallSDK */,
+				BE27EA4E2E7C5C25009F1840 /* Frameworks */,
 				BE04EAD92E7BCA9F00EA6484 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,6 +81,13 @@
 				BE04EAE32E7BCA9F00EA6484 /* MakeCallSDKFrameworkTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		BE27EA4E2E7C5C25009F1840 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,10 +117,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BE04EADA2E7BCA9F00EA6484 /* MakeCallSDKFramework */,
+				BE04EADA2E7BCA9F00EA6484 /* MakeCallSDK */,
 			);
 			name = MakeCallSDKFramework;
 			packageProductDependencies = (
+				BE27EA4F2E7C5C25009F1840 /* WebRTC */,
+				BE27EA512E7C5C25009F1840 /* linphonesw */,
 			);
 			productName = MakeCallSDKFramework;
 			productReference = BE04EAD82E7BCA9F00EA6484 /* MakeCallSDKFramework.framework */;
@@ -123,9 +140,6 @@
 			);
 			dependencies = (
 				BE04EAE62E7BCA9F00EA6484 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				BE04EAE72E7BCA9F00EA6484 /* MakeCallSDKFrameworkTests */,
 			);
 			name = MakeCallSDKFrameworkTests;
 			packageProductDependencies = (
@@ -161,6 +175,10 @@
 			);
 			mainGroup = BE04EACE2E7BCA9F00EA6484;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				BE04EAFF2E7C1CB500EA6484 /* XCRemoteSwiftPackageReference "WebRTC" */,
+				BE27EA4D2E7C5B84009F1840 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = BE04EAD92E7BCA9F00EA6484 /* Products */;
 			projectDirPath = "";
@@ -177,6 +195,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE27EA542E7C5ED5009F1840 /* LICENSE in Resources */,
+				BE04EB012E7C1E5100EA6484 /* Podfile in Resources */,
+				BE04EAF72E7C198900EA6484 /* MakeCallSDK.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +511,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE04EAFF2E7C1CB500EA6484 /* XCRemoteSwiftPackageReference "WebRTC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpiezo/WebRTC.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 86.4240.0;
+			};
+		};
+		BE27EA4D2E7C5B84009F1840 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitlab.linphone.org/BC/public/linphone-sdk-swift-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.44;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE27EA4F2E7C5C25009F1840 /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE04EAFF2E7C1CB500EA6484 /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
+		};
+		BE27EA512E7C5C25009F1840 /* linphonesw */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE27EA4D2E7C5B84009F1840 /* XCRemoteSwiftPackageReference "linphone-sdk-swift-ios" */;
+			productName = linphonesw;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE04EACF2E7BCA9F00EA6484 /* Project object */;
 }
