@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MakeCallSDK"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "A simple SDK to make calls"
   s.description  = "MakeCallSDK is a demo SDK to make call functionalities for iOS developers."
   s.homepage     = "https://github.com/ThaiPhucDEV/MakeCallSDK"
@@ -10,10 +10,12 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '12.0'
 
   s.source       = { :git => "https://github.com/ThaiPhucDEV/MakeCallSDK.git", :tag => s.version }
-  
+
+  # 👇 đường dẫn đúng với repo hiện tại
   s.source_files = "MakeCallSDK/**/*.{swift}"
 
-  # 👇 BẮT BUỘC để import được
+  s.requires_arc = true
+
   s.pod_target_xcconfig = {
     'DEFINES_MODULE' => 'YES'
   }
