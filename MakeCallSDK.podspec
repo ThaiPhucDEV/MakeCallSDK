@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MakeCallSDK"
-  s.version      = "0.0.7"
+  s.version      = "0.0.8"
   s.summary      = "A simple SDK to make calls"
   s.description  = "MakeCallSDK is a demo SDK to make call functionalities for iOS developers."
   s.homepage     = "https://github.com/ThaiPhucDEV/MakeCallSDK"
