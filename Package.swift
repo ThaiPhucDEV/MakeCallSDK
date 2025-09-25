@@ -8,7 +8,7 @@ let package = Package(
         .library(name: "MakeCallSDK", targets: ["MakeCallSDK"]),
     ],
     dependencies: [
-        .package(url: "https://gitlab.linphone.org/BC/public/linphone-sdk-swift-ios.git", from: "5.4.5"),  // Hoặc URL chính thức của linphone-swift SPM
+        .package(url: "https://gitlab.linphone.org/BC/public/linphone-sdk-swift-ios.git", exact: "5.4.45"),  // Hoặc URL chính thức của linphone-swift SPM
     ],
     targets: [
         .target(

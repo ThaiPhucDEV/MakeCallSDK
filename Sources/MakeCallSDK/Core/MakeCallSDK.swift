@@ -388,9 +388,9 @@ extension MakeCallSDK: MakeCallEventObserver {
     @objc private func proximityStateChanged(notification: Notification) {
         let device = UIDevice.current
         if device.proximityState {
-            print("📱 Proximity detected: màn hình tắt")
+        //    print("📱 Proximity detected: màn hình tắt")
         } else {
-            print("📱 Proximity ended: màn hình bật lại")
+         //   print("📱 Proximity ended: màn hình bật lại")
         }
     }
     
