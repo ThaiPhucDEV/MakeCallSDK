@@ -1,92 +1,108 @@
-# Make Call SDK IOS
+# 📞 MakeCallSDK
 
+**MakeCallSDK** là thư viện iOS viết bằng Swift, giúp tích hợp tính năng **VoIP/SIP Call** (gọi điện thoại qua internet) vào ứng dụng của bạn.
 
+SDK hỗ trợ **iOS 13+**, dễ cài đặt, và có thể mở rộng UI để tùy biến màn hình cuộc gọi.
 
-## Getting started
+---
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## ✨ Tính năng
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- Khởi tạo và đăng ký SIP account
+- Thực hiện và kết thúc cuộc gọi
+- Theo dõi trạng thái cuộc gọi (idle, ringing, connected, ended...)
+- Quản lý trạng thái đăng ký SIP và kết nối mạng
+- Tùy biến giao diện cuộc gọi bằng SwiftUI hoặc UIKit
 
-## Add your files
+---
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## 📦 Cài đặt
 
+Bạn có thể cài đặt **MakeCallSDK** qua **Swift Package Manager (SPM)**.
+
+### Swift Package Manager (SPM)
+
+**Tóm tắt các bước:**
+
+1. Mở **Xcode**, chọn project trong **Project Navigator**.
+2. Vào tab **Package Dependencies**.
+3. Nhấn nút **+** và nhập URL sau vào thanh tìm kiếm:
+   ```
+   https://gitlab.mitek.vn/mitek-public/sdk/micall/make-call-sdk-ios
+   ```
+4. Chọn **phiên bản** hoặc **nhánh** mong muốn.
+5. Nhấn **Add Package** để hoàn tất.
+
+---
+
+## 🚀 Hướng dẫn sử dụng
+
+### Import SDK
+
+```swift
+import MakeCallSDK
 ```
-cd existing_repo
-git remote add origin http://192.168.207.31/mitek-public/sdk/micall/make-call-sdk-ios.git
-git branch -M main
-git push -uf origin main
+
+### Cấu hình SDK
+
+```swift
+let config = CallConfig(
+    ext: "<YOUR_EXTENSION>",
+    password: "<YOUR_PASSWORD>",
+    domain: "<YOUR_SIP_DOMAIN>",
+    sipProxy: "<YOUR_SIP_PROXY>",
+    port: 5060,
+    transport: "tcp" // hoặc "udp", "tls", "wss"
+)
+
+MakeCallSDK.shared.initialize(config: config)
 ```
 
-## Integrate with your tools
+⚠️ **Lưu ý:** Thay `<YOUR_EXTENSION>`, `<YOUR_PASSWORD>`, `<YOUR_SIP_DOMAIN>`, `<YOUR_SIP_PROXY>` bằng thông tin tài khoản SIP thật do nhà cung cấp dịch vụ VoIP cung cấp.
 
-- [ ] [Set up project integrations](http://192.168.207.31/mitek-public/sdk/micall/make-call-sdk-ios/-/settings/integrations)
+### Thực hiện cuộc gọi
 
-## Collaborate with your team
+```swift
+MakeCallSDK.shared.startCall(phoneNumber: "0901234567") { result in
+    switch result {
+    case .success:
+        print("📞 Cuộc gọi đã bắt đầu")
+    case .failure(let error):
+        print("❌ Lỗi: \(error.localizedDescription)")
+    }
+}
+```
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Kết thúc cuộc gọi
 
-## Test and Deploy
+```swift
+MakeCallSDK.shared.endCall()
+```
 
-Use the built-in continuous integration in GitLab.
+---
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## ⚠️ Quyền bắt buộc
 
-***
+Trong `Info.plist`, thêm:
 
-# Editing this README
+```xml
+<key>NSMicrophoneUsageDescription</key>
+<string>Ứng dụng cần quyền Microphone để thực hiện cuộc gọi.</string>
+```
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Nếu hỗ trợ Bluetooth headset:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+```xml
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>Ứng dụng cần quyền Bluetooth để kết nối tai nghe.</string>
+```
 
-## Name
-Choose a self-explaining name for your project.
+---
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+## 📚 Tài liệu
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Để biết thêm chi tiết về cách sử dụng và tùy biến SDK, vui lòng tham khảo tài liệu đầy đủ tại repository chính thức.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## 🆘 Hỗ trợ
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Nếu gặp vấn đề trong quá trình sử dụng, vui lòng tạo issue trên repository hoặc liên hệ team phát triển.
